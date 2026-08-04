@@ -6,14 +6,18 @@ interface Props {
   onOpened: () => void
 }
 
-const SHAKE_SMALL = {
-  x: [0, -14, 14, -10, 10, -5, 5, 0],
-  transition: { duration: 0.45, ease: 'easeOut' },
-}
-const SHAKE_BIG = {
-  x: [0, -22, 22, -16, 16, -9, 9, -4, 4, 0],
-  y: [0, -4, 4, -2, 2, 0],
-  transition: { duration: 0.55, ease: 'easeOut' },
+function shakeFor(clickIndex: number, total: number) {
+  const progress = Math.min(clickIndex / total, 1)
+  const amp = 10 + progress * 34
+  const yAmp = progress * 16
+  const rot = progress * 10
+
+  return {
+    x: [0, -amp, amp, -amp * 0.7, amp * 0.7, -amp * 0.35, amp * 0.35, 0],
+    y: [0, -yAmp, yAmp, -yAmp * 0.5, yAmp * 0.5, 0],
+    rotate: [0, -rot, rot, -rot * 0.5, rot * 0.5, 0],
+    transition: { duration: 0.42 - progress * 0.15, ease: 'easeOut' },
+  }
 }
 
 const SPARKLE_POSITIONS = [
@@ -29,6 +33,8 @@ const SPARKLE_POSITIONS = [
 
 const hints = ['[ TRYCK FÖR ATT ÖPPNA ]']
 
+const REQUIRED_CLICKS = 30
+
 export default function GiftBox({ onOpened }: Props) {
   const [clicks, setClicks] = useState(0)
   const [opening, setOpening] = useState(false)
@@ -39,10 +45,10 @@ export default function GiftBox({ onOpened }: Props) {
   const handleClick = async () => {
     if (opening) return
 
-    if (clicks < 2) {
+    if (clicks < REQUIRED_CLICKS - 1) {
       const next = clicks + 1
       setClicks(next)
-      await giftControls.start(next === 1 ? SHAKE_SMALL : SHAKE_BIG)
+      await giftControls.start(shakeFor(next, REQUIRED_CLICKS))
     } else {
       setOpening(true)
 
