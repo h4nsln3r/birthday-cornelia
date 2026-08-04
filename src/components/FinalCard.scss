@@ -147,6 +147,10 @@
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
+  border: none;
+  background: transparent;
+  padding: 0;
+  outline-offset: 4px;
   transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
 
   &:hover,

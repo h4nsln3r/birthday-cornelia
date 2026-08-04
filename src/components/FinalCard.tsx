@@ -37,6 +37,13 @@ interface ConfettiPiece {
 
 const CONFETTI_COLORS = ['#ff2d78', '#00f5ff', '#aaff00', '#ffd700', '#ff6b35', '#c084fc']
 
+// Base64-obfuskerad så länken inte ligger som klartext i källkoden/HTML
+const GIFT_LINK_ENCODED = 'aHR0cHM6Ly9jbGF1ZGUuYWkvZ2lmdC9yZWRlZW0/Y29kZT1mNTE4ZTAwMC0wNzQyLTQ1YTYtODY4MS1kNzM0MjQ5YTY5NDQ='
+
+function openGiftLink() {
+  window.open(atob(GIFT_LINK_ENCODED), '_blank', 'noopener,noreferrer')
+}
+
 export default function FinalCard() {
   const line1 = useTypewriter('GRATTIS PÅ 30-ÅRSDAGEN', 200, 55)
   const line2 = useTypewriter('CORNELIA INGVARSSON!', 1900, 55)
@@ -123,14 +130,9 @@ export default function FinalCard() {
           <span className="gc-tag">PRESENTKORT</span>
         </div>
         <div className="gc-divider">══════════════════════</div>
-        <a
-          className="gc-value"
-          href="https://claude.ai/gift/redeem?code=f518e000-0742-45a6-8681-d734249a6944"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <button type="button" className="gc-value" onClick={openGiftLink}>
           1 MÅNAD PRO
-        </a>
+        </button>
         <div className="gc-divider gc-divider--thin">──────────────────────</div>
         <div className="gc-from">FRÅN: HANNES MED KÄRLEK</div>
         <div className="gc-noise">░░░░░░░░░░░░░░░░░░░░░░</div>

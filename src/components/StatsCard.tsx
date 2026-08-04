@@ -7,6 +7,7 @@ interface Props {
   unit: string
   subtitle: string
   extra?: string
+  note?: string
   accent: 'cyan' | 'pink' | 'lime'
   onNext: () => void
 }
@@ -64,7 +65,7 @@ function useTypewriter(text: string, delay = 0, speed = 38) {
   return displayed
 }
 
-export default function StatsCard({ value, unit, subtitle, extra, accent, onNext }: Props) {
+export default function StatsCard({ value, unit, subtitle, extra, note, accent, onNext }: Props) {
   const count = useCountUp(value)
   const displayedSub = useTypewriter(subtitle, 1300, 38)
   const { color, rgb } = useMemo(() => ACCENTS[accent], [accent])
@@ -106,6 +107,17 @@ export default function StatsCard({ value, unit, subtitle, extra, accent, onNext
           transition={{ delay: 3.2 }}
         >
           {extra}
+        </motion.p>
+      )}
+
+      {note && (
+        <motion.p
+          className="sc-note"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.4 }}
+          transition={{ delay: 3.8 }}
+        >
+          {note}
         </motion.p>
       )}
 

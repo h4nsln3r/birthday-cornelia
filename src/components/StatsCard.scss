@@ -87,6 +87,14 @@
   font-style: italic;
 }
 
+.sc-note {
+  font-family: 'VT323', monospace;
+  font-size: clamp(14px, 2.6vmin, 17px);
+  color: rgba(232, 224, 255, 0.4);
+  font-style: italic;
+  margin-top: -4px;
+}
+
 .sc-btn {
   background: transparent;
   border: 2px solid var(--accent);

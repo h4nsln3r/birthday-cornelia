@@ -14,10 +14,10 @@ function computeStats() {
   const days = Math.floor(ms / 86_400_000)
   const hours = Math.floor(ms / 3_600_000)
 
-  // Beer estimate: assumed she started at 18 (2014-08-04), avg 3 beers/week
-  const beerStart = new Date('2014-08-04T00:00:00')
+  // Beer estimate: assumed she started at 16 (2012-08-04), avg 4 beers/week
+  const beerStart = new Date('2012-08-04T00:00:00')
   const beerDays = Math.floor((now.getTime() - beerStart.getTime()) / 86_400_000)
-  const beers = Math.floor(beerDays * 3 / 7)
+  const beers = Math.floor(beerDays * 4 / 7)
 
   return { days, hours, beers }
 }
@@ -60,7 +60,8 @@ export default function App() {
             value={stats.beers}
             unit="öl"
             subtitle="ungefärlig uppskattning™  (±420)"
-            extra="baserat på vetenskapliga gissningar sedan 18-årsdagen"
+            extra={'baserat på vetenskapliga gissningar sedan "18-årsdagen"'}
+            note="(det är ca 4 öl i veckan)"
             accent="lime"
             onNext={() => setStage('final')}
           />
