@@ -1,0 +1,108 @@
+.stats-card {
+  position: relative;
+  width: min(520px, 90vw);
+  padding: clamp(28px, 6vmin, 52px) clamp(24px, 5vmin, 48px);
+  background: rgba(6, 0, 18, 0.92);
+  border: 2px solid var(--accent);
+  box-shadow:
+    0 0 28px var(--accent),
+    0 0 60px rgba(var(--rgb), 0.25),
+    inset 0 0 40px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 3.5vmin, 26px);
+  text-align: center;
+  z-index: 1;
+}
+
+.sc-corner {
+  position: absolute;
+  font-family: 'VT323', monospace;
+  font-size: 22px;
+  color: var(--accent);
+  opacity: 0.45;
+
+  &--tl { top: 10px; left: 14px; }
+  &--tr { top: 10px; right: 14px; }
+  &--bl { bottom: 10px; left: 14px; }
+  &--br { bottom: 10px; right: 14px; }
+}
+
+.sc-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(7px, 1.6vmin, 9px);
+  color: var(--accent);
+  letter-spacing: 3px;
+  opacity: 0.6;
+}
+
+.sc-number-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.sc-number {
+  font-family: 'VT323', monospace;
+  font-size: clamp(72px, 17vmin, 128px);
+  line-height: 1;
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--accent), 0 0 50px rgba(var(--rgb), 0.5);
+  letter-spacing: -2px;
+}
+
+.sc-unit {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(14px, 3vmin, 20px);
+  color: #e8e0ff;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.sc-subtitle {
+  font-family: 'VT323', monospace;
+  font-size: clamp(22px, 4.5vmin, 30px);
+  color: rgba(232, 224, 255, 0.82);
+  max-width: 400px;
+  line-height: 1.45;
+  min-height: 1.45em;
+}
+
+.sc-cursor {
+  color: var(--accent);
+  animation: cursor-blink 0.8s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.sc-extra {
+  font-family: 'VT323', monospace;
+  font-size: clamp(16px, 3vmin, 20px);
+  color: rgba(232, 224, 255, 0.55);
+  font-style: italic;
+}
+
+.sc-btn {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(8px, 1.8vmin, 11px);
+  padding: 14px 28px;
+  cursor: pointer;
+  letter-spacing: 3px;
+  text-shadow: 0 0 8px var(--accent);
+  box-shadow: 0 0 14px rgba(var(--rgb), 0.4), inset 0 0 12px rgba(var(--rgb), 0.08);
+  transition: box-shadow 0.2s, background 0.2s;
+  margin-top: 4px;
+
+  &:hover {
+    background: rgba(var(--rgb), 0.12);
+    box-shadow: 0 0 28px rgba(var(--rgb), 0.7), inset 0 0 16px rgba(var(--rgb), 0.15);
+  }
+}

@@ -1,0 +1,172 @@
+.final-card {
+  position: relative;
+  width: min(560px, 92vw);
+  padding: clamp(28px, 5.5vmin, 50px) clamp(24px, 5vmin, 48px);
+  background: rgba(6, 0, 18, 0.94);
+  border: 2px solid #ffd700;
+  box-shadow:
+    0 0 28px #ffd700,
+    0 0 70px rgba(255, 215, 0, 0.22),
+    inset 0 0 40px rgba(0, 0, 0, 0.55);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(14px, 3vmin, 22px);
+  text-align: center;
+  z-index: 1;
+}
+
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 50;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: 0;
+  box-shadow: 0 0 4px currentColor;
+}
+
+.fc-corner {
+  position: absolute;
+  font-family: 'VT323', monospace;
+  font-size: 20px;
+  color: #ffd700;
+  opacity: 0.5;
+
+  &--tl { top: 10px; left: 14px; }
+  &--tr { top: 10px; right: 14px; }
+  &--bl { bottom: 10px; left: 14px; }
+  &--br { bottom: 10px; right: 14px; }
+}
+
+.fc-stars {
+  font-family: 'VT323', monospace;
+  font-size: clamp(22px, 4.5vmin, 30px);
+  color: #ffd700;
+  text-shadow: 0 0 10px #ffd700, 0 0 24px rgba(255, 215, 0, 0.5);
+  letter-spacing: 8px;
+}
+
+.fc-greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fc-greeting-1 {
+  font-family: 'VT323', monospace;
+  font-size: clamp(28px, 5.5vmin, 40px);
+  color: #ffd700;
+  text-shadow: 0 0 12px #ffd700, 0 0 28px rgba(255, 215, 0, 0.45);
+  line-height: 1.4;
+  letter-spacing: 3px;
+  min-height: 1.4em;
+}
+
+.fc-greeting-2 {
+  font-family: 'VT323', monospace;
+  font-size: clamp(32px, 6.5vmin, 52px);
+  color: #ff2d78;
+  text-shadow: 0 0 12px #ff2d78, 0 0 30px rgba(255, 45, 120, 0.45);
+  line-height: 1.4;
+  letter-spacing: 3px;
+  min-height: 1.4em;
+}
+
+.fc-cursor {
+  animation: cursor-blink 0.8s step-end infinite;
+  color: #ffd700;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+// ── Gift card ─────────────────────────────────────────────
+.gift-card {
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid #00f5ff;
+  box-shadow: 0 0 20px #00f5ff, inset 0 0 20px rgba(0, 245, 255, 0.06);
+  padding: clamp(16px, 3.5vmin, 28px) clamp(20px, 4vmin, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 10, 30, 0.7);
+}
+
+.gc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.gc-brand {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(16px, 3.5vmin, 22px);
+  color: #00f5ff;
+  text-shadow: 0 0 10px #00f5ff;
+  letter-spacing: 4px;
+}
+
+.gc-tag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(6px, 1.4vmin, 8px);
+  color: rgba(0, 245, 255, 0.55);
+  letter-spacing: 3px;
+}
+
+.gc-divider {
+  font-family: 'VT323', monospace;
+  font-size: 18px;
+  color: #00f5ff;
+  opacity: 0.5;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+
+  &--thin {
+    opacity: 0.3;
+    font-size: 16px;
+  }
+}
+
+.gc-value {
+  font-family: 'VT323', monospace;
+  font-size: clamp(30px, 6vmin, 44px);
+  color: #ffd700;
+  text-shadow: 0 0 14px #ffd700, 0 0 30px rgba(255, 215, 0, 0.4);
+  letter-spacing: 4px;
+}
+
+.gc-from {
+  font-family: 'VT323', monospace;
+  font-size: clamp(18px, 3.5vmin, 24px);
+  color: rgba(232, 224, 255, 0.75);
+  letter-spacing: 2px;
+}
+
+.gc-noise {
+  font-family: 'VT323', monospace;
+  font-size: 14px;
+  color: rgba(0, 245, 255, 0.2);
+  letter-spacing: 2px;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+}
+
+// ── Footer ────────────────────────────────────────────────
+.fc-footer {
+  font-family: 'VT323', monospace;
+  font-size: clamp(18px, 3.8vmin, 24px);
+  color: rgba(232, 224, 255, 0.5);
+  letter-spacing: 1px;
+}
