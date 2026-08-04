@@ -27,11 +27,7 @@ const SPARKLE_POSITIONS = [
   { top: '85%', left: '20%' },
 ]
 
-const hints = [
-  '[ TRYCK FÖR ATT ÖPPNA ]',
-  '[ EN GÅNG TILL... ]',
-  '[ SISTA GÅNGEN! ]',
-]
+const hints = ['[ TRYCK FÖR ATT ÖPPNA ]']
 
 export default function GiftBox({ onOpened }: Props) {
   const [clicks, setClicks] = useState(0)
@@ -104,15 +100,17 @@ export default function GiftBox({ onOpened }: Props) {
         </div>
       </motion.div>
 
-      <motion.p
-        className="hint-text"
-        key={clicks}
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        {hints[clicks]}
-      </motion.p>
+      {clicks === 0 && (
+        <motion.p
+          className="hint-text"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.3 }}
+        >
+          {hints[0]}
+        </motion.p>
+      )}
 
       {/* Ambient sparkles */}
       <div className="sparkles" aria-hidden>

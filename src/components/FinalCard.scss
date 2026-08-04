@@ -144,6 +144,21 @@
   color: #ffd700;
   text-shadow: 0 0 14px #ffd700, 0 0 30px rgba(255, 215, 0, 0.4);
   letter-spacing: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: color 0.25s ease, text-shadow 0.25s ease, transform 0.25s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: #fff3b0;
+    text-shadow: 0 0 20px #ffd700, 0 0 46px rgba(255, 215, 0, 0.7);
+    transform: scale(1.06);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
 }
 
 .gc-from {

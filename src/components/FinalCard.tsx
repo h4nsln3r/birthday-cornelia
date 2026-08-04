@@ -123,7 +123,14 @@ export default function FinalCard() {
           <span className="gc-tag">PRESENTKORT</span>
         </div>
         <div className="gc-divider">══════════════════════</div>
-        <div className="gc-value">1 MÅNAD PRO</div>
+        <a
+          className="gc-value"
+          href="https://claude.ai/gift/redeem?code=f518e000-0742-45a6-8681-d734249a6944"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          1 MÅNAD PRO
+        </a>
         <div className="gc-divider gc-divider--thin">──────────────────────</div>
         <div className="gc-from">FRÅN: HANNES MED KÄRLEK</div>
         <div className="gc-noise">░░░░░░░░░░░░░░░░░░░░░░</div>
